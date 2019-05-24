@@ -6,7 +6,7 @@ export const fetchLoacation = () => dispatch => {
   .then(data => dispatch({
     type: FETCH_LOCATION,
     payload: data
-}))
+  }))
 }
 
 export const fetchWeather = (location) => dispatch => {

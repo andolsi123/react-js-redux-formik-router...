@@ -1,8 +1,8 @@
 import {FETCH_WEATHER, FETCH_LOCATION} from '../actions/types'
 
 const initialState = {
-    loc: {},
-    weth: {}
+  loc: {},
+  weth: {}
 }
 
 export default function(state = initialState, action) {

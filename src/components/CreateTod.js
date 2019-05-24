@@ -35,11 +35,11 @@ export default class CreateTod extends Component {
     render() {
         return (
             <div>
-                <input type="text" onChange={this.handelChange} name="task"/>
-                <input type="text" onChange={this.handelChange} name="des"/>
-                <input type="date" onChange={this.handelChange} name="deadline"/>
-                <button onClick={this.handelSubmit}>add</button>
-                <Link to="../dashboard">get back</Link>
+                <input type="text" onChange={this.handelChange} className="form-control mb-2 mt-5" palceholder="task" name="task"/>
+                <input type="text" onChange={this.handelChange} className="form-control mb-2" palceholder="description" name="des"/>
+                <input type="date" onChange={this.handelChange} className="form-control mb-2" name="deadline"/>
+                <button onClick={this.handelSubmit} className="btn btn-dark mr-2" >add</button>
+                <Link to="../dashboard" className="btn btn-dark">get back</Link>
             </div>
         )
     }
