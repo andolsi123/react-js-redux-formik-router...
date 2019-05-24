@@ -5,7 +5,7 @@ import { counterClick } from '../actions/counterActions'
 function Counter(props) {
     return (
         <div>
-            <h1 className="font-weight-bold">{props.counter.count}</h1>
+            <h1 className="font-weight-bold mt-5">{props.counter.count}</h1>
             <button className="btn btn-secondary" onClick={props.onIncrement}>increment</button>
         </div>
     )
