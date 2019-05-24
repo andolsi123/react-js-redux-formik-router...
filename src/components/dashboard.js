@@ -7,9 +7,16 @@ import Card from 'react-bootstrap/Card'
 import Todos from './Todos'
 import { connect } from 'react-redux'
 import { fetchLoacation, fetchWeather } from '../actions/postActions'
+import { Route } from "react-router-dom"
+import TodoDetails from './TodoDeatils'
+import createTod from './CreateTod'
+import { Link } from 'react-router-dom'
 
 class Dashboard extends Component {
-
+  constructor() {
+    super()
+    this.state = {show: true}
+  }
   componentDidMount() {
     this.props.fetchLoacation()
   }
@@ -25,9 +32,12 @@ class Dashboard extends Component {
     <div>
       <Container>
         <DashboardHearder />
+        <Link to={`${this.props.match.url}/createTodo`} >Add todo</Link>
         <Row>
           <Col xs={6}>
-            <Todos />
+          <Route path={`${this.props.match.url}`} exact component={Todos} />
+          <Route path={`${this.props.match.url}/detail/:deatil`} component={TodoDetails} />
+          <Route path={`${this.props.match.url}/createTodo`} component={createTod} />
           </Col>
           <Col xs={6}>
           <Card style={{width: '18rem'}} className="mt-5 mb-5">

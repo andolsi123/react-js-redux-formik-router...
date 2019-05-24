@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-
 class DashboardHearder extends Component {
-
+ 
   render() {
     return (
       <div>

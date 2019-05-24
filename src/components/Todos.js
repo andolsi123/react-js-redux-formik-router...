@@ -1,42 +1,33 @@
 import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom'
 
 export default class Todos extends Component {
-  constructor() {
-    super()
-    this.edit = this.edit.bind(this)
-    this.delete = this.delete.bind(this)
-  }
-
-  edit(id) {
-
-  }
-
-  delete(id) {
-
-  }
-
   render() {
-    const tbl = JSON.parse(localStorage.getItem("todos")).map(todo =>  
-      <tr>
-       <td>{todo.task}</td>
-       <td>{todo.task}</td>
-       <td>{todo.des}</td>
-       <td>
-         <button type="button" onClick={this.edit(todo.id)}>edit</button>
-         <button type="button" onClick={this.delete(todo.id)}>delete</button>
-        </td>
-      </tr>)
+      const tabel = JSON.parse(localStorage.getItem("todos")).map(todo =>  {
+        return todo.idUser === localStorage.getItem("logged") ?
+          <tr key={todo.id}>
+          <td>{todo.task}</td>
+          <td>{todo.task}</td>
+          <td>{todo.des}</td>
+          <td>
+            <Link to={`${this.props.match.url}/detail/${todo.id}`}>deatils</Link>
+           </td>
+         </tr>
+        : <h1>you dont have any todos</h1> 
+      })
     return (
       <div>
       <Table responsive="sm">
+      <thead>
         <tr>
         <th>task</th>
         <th>description</th>
         <th>dead line</th>
         <th>action</th>
         </tr>
-        {tbl}
+        </thead>
+        <tbody>{tabel}</tbody>
       </Table>
       </div>
     )
